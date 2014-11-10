@@ -1,0 +1,7 @@
+//var awesomeThoughts = "I am Nathan and I am redeemed.";
+//var funThoughts = (awesomeThoughts.replace("redeemed", "fun"));
+//$("#main").append(funThoughts);
+//console.log(awesomeThoughts);
+//console.log(funThoughts);
+//var skills = ["Teaching","Preaching","Fishing"];
+//console.log(skills.length);
