@@ -5,3 +5,57 @@
 //console.log(funThoughts);
 //var skills = ["Teaching","Preaching","Fishing"];
 //console.log(skills.length);
+//$("#header").prepend(role);
+//$("#main").prepend(bio.contact info);
+//$("#main").append(bio.welcome message);
+//$("#main").append(bio.picture url);
+//$("#main").append(bio.skills);
+
+//$("#workExperience").append(work.currentjob);
+work contains an array of jobs. Each job object in jobs should contain an employer, title, location, dates worked and description.
+---------------------------------------------------------------------------------------------------------------
+BELOW THIS LINE IS THE CODE THAT WAS WORKING BEFORE THEY TOLD ME TO TAKE OUT EVERYTHING BUT THE FOUR OBJECTS
+---------------------------------------------------------------------------------------------------------------
+var bio = {
+	"name":"Nathan Bateman",
+	"role":"Business Teacher",
+	"contacts":"email@gmail.com",
+	"welcomemessage":"Greetings! Checkout my working resume.",
+	"picture":"images/nathan.jpg",
+	"skills":[" Instructional Design"," Curriculum Design"," Technology Integration"," Adobe Creative Cloud"," HTML/CSS"]
+};
+var formattedcontacts = HTMLemail.replace("%data%",bio.contacts);
+$("#header").append(formattedcontacts);
+var formattedwelcomemessage = HTMLWelcomeMsg.replace("%data%",bio.welcomemessage);
+$("#header").append(formattedwelcomemessage);
+
+$("#header").append(HTMLskillsStart);
+var formattedskills = HTMLskills.replace("%data%",bio.skills);
+$("#header").append(formattedskills);
+var formattedbioPic = HTMLbioPic.replace("%data%",bio.picture);
+$("#header").prepend(formattedbioPic);
+var work = {};
+work.currentjob ="HS Business Teacher";
+work.employer="International Community School";
+work.dates="2008-Present";
+var education = {};
+education["school"] = "Boise State University";
+education["yearsattended"] = " -- 2011-2012";
+education["location"] = "-- Online";
+$("#workExperience").append(HTMLworkStart);
+var formattedtitle = HTMLworkTitle.replace("%data%",work.currentjob);
+$("#workExperience").append(formattedtitle);
+var formattedemployer = HTMLworkEmployer.replace("%data%",work.employer);
+$("#workExperience").append(formattedemployer);
+var formatteddates = HTMLworkDates.replace("%data%",work.dates);
+$("#workExperience").append(formatteddates);
+$("#education").append(HTMLschoolStart);
+var formattedschool = HTMLschoolName.replace("%data%",education["school"]);
+$("#education").append(education["school"]);
+var formattedyearsattended = HTMLschoolName.replace("%data%",education["yearsattended"]);
+$("#education").append(education["yearsattended"]);
+var formattedlocation = HTMLschoolLocation.replace("%data%",education["location"]);
+$("#education").append(education["location"]);
+-----------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------
