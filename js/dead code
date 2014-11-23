@@ -4,6 +4,7 @@
 //console.log(awesomeThoughts);
 //console.log(funThoughts);
 //var skills = ["Teaching","Preaching","Fishing"];
+<<<<<<< HEAD
 //console.log(skills.length);
 //$("#header").prepend(role);
 //$("#main").prepend(bio.contact info);
@@ -59,3 +60,101 @@ $("#education").append(education["location"]);
 -----------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------
+	var formattedmobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
+	$("#header").append(formattedmobile);
+
+
+	
+
+var education = {
+    "schools": [
+        {
+            "name": "Valdosta State University",
+            "major": "B.S. Business Education",
+            "graduation": "2008",
+            "certification": "HS Computer/Business, MS Math/Reading",
+            "city": "Valdosta, GA"
+        },
+        {
+            "name": "Boise State University",
+            "courses": [
+                "Introduction to Educational Technology",
+                "The Internet For Educators",
+                "Instructional Design",
+                "Theoretical Foundations of Learning Environments"
+            ],
+            "city": "Boise, ID"
+        },
+        {
+            "name": "Udacity",
+            "courses": [
+                "Intro to HTML/CSS",
+                "JavaScript Basics",
+                "Intro to Computer Science,"
+            ]
+        }
+    ]
+}
+var projects = {
+    "projects": [
+        {
+            "title": "Editing CSS Templates",
+            "images": ["edtech.jpg"],
+            "dates worked": "2012",
+            "description": "Created lots of HTML/CSS projects in my EDTECH 502 class."
+        },
+        {
+            "title": "Intro to HTML/CSS",
+            "images": ["project1.jpg"],
+            "dates worked": "2014",
+            "description": "Project 1 for Udacity nano degree."
+        },
+        {
+            "employer": "Liberty Place",
+            "title": "Care Giver",
+            "location": "Whitehall, MT",
+            "dates worked": "2005",
+            "description": "Personal care giver for residents with traumatic brain injuries.Prepared meals, gave showers, administered medication, and helped residents with various life skills."
+        }
+    ]
+}
+
+var bio = {
+    "name": "Nathan Bateman",
+    "role": "Business Teacher",
+    "welcomemessage": "Greetings! Checkout my working resume.",
+    "contacts": {
+        "email": "email@gmail.com",
+        "mobile": "5551212",
+        "github": "Nathan-Bateman",
+        "skype": "nbateman1",
+        "location": "Bangkok, Thailand"
+    },
+    "picture": "images/nathan.jpg",
+    "skills": [
+        " Instructional Design",
+        " Curriculum Design",
+        " Technology Integration",
+        " Adobe Creative Cloud",
+        " HTML/CSS"
+    ]
+}
+
+function displayHeader(){
+if (bio.skills.length > 0){
+    $("#header").append(HTMLskillsStart);
+    var formattedskills = HTMLskills.replace("%data%",bio.skills[0]);
+    $("#skills").append(formattedskills);
+    formattedskills = HTMLskills.replace("%data%",bio.skills[1]);
+    $("#skills").append(formattedskills);
+    formattedskills = HTMLskills.replace("%data%",bio.skills[2]);
+    $("#skills").append(formattedskills);
+    formattedskills = HTMLskills.replace("%data%",bio.skills[3]);
+    $("#skills").append(formattedskills);
+    formattedskills = HTMLskills.replace("%data%",bio.skills[4]);
+    $("#skills").append(formattedskills);
+    formattedskills = HTMLskills.replace("%data%",bio.skills[5]);
+}
+};
+displayHeader();
+

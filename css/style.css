@@ -55,6 +55,7 @@ h2, h3, h4, h5 {
   color: #999999;
   line-height: 16px;
   float: left;
+  clear: left;
 }
 
 .location-text {
@@ -63,7 +64,6 @@ h2, h3, h4, h5 {
   color: #999999;
   line-height: 16px;
   float: right;
-
 }
 
 p {
