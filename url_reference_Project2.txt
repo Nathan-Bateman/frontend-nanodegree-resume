@@ -3,3 +3,22 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 http://www.w3schools.com/jsref/jsref_substring.asp
 http://www.computerworld.com/article/2593623/app-development/application-programming-interface.html
 http://smith1jason.github.io/Project2Resume/
+http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/
+http://stackoverflow.com/questions/14408281/access-elements-in-json-object-like-an-array
+many links posted in the instructors' notes
+http://www.webopedia.com/TERM/A/API.html
+https://www.youtube.com/watch?v=n8aKDIKRr7g
+https://www.youtube.com/watch?v=7YcW25PHnAA
+http://www.codecademy.com/glossary/javascript
+http://stackoverflow.com/questions/2647867/how-to-determine-if-variable-is-undefined-or-null
+http://stackoverflow.com/questions/858181/how-to-check-a-not-defined-variable-in-javascript
+http://www.w3schools.com/jsref/jsref_replace.asp
+http://davidwalsh.name/multiline-javascript-strings
+http://stackoverflow.com/questions/13272406/javascript-string-to-array-conversion
+http://www.w3schools.com/jsref/jsref_sort.asp
+http://www.w3schools.com/js/js_loop_for.asp
+http://stackoverflow.com/questions/351409/appending-to-array
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+I looked at some piazza posts for problem 2, but none of which were "spoilers" looked at one
+persons Pseudocode and did get some idea about how to approach the problem from it.

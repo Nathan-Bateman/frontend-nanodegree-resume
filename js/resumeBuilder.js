@@ -1,7 +1,12 @@
 
 var name = "Nathan Bateman";
-var role = "Educator";
+var role = "Front-End Web Developer";
 var pic = "images/nathan.jpg";
+var email = 'nathan.bateman.jr@gmail.com';
+var git = 'Nathan-Bateman';
+var phone = '229-638-0708';
+var locale = 'Kansas City, MO';
+var git = 'Nathan-Bateman';
 var formattedname = HTMLheaderName.replace("%data%",name);
 var formattedrole = HTMLheaderRole.replace("%data%",role);
 var formattedPic = HTMLbioPic.replace("%data%",pic);
@@ -39,26 +44,34 @@ var education = {
         {
             "name": "Valdosta State University",
             "major": "B.S. Business Education",
-            "graduation": "2008",
+            "dates": "2003 - 2008",
             "certification": "HS Computer/Business, MS Math/Reading",
-            "city": "Valdosta, GA"
+            "location": "Valdosta, GA"
         },
         {
             "name": "Boise State University",
+            "dates": "2011 - 2012",
             "courses": [
                 "Introduction to Educational Technology",
-                "The Internet For Educators",
-                "Instructional Design",
-                "Theoretical Foundations of Learning Environments"
+                " The Internet For Educators",
+                " Instructional Design",
+                " Theoretical Foundations of Learning Environments "
             ],
-            "city": "Boise, ID"
+            "location": ""
         },
         {
             "name": "Udacity",
+            "dates": "2014 - 2015",
             "courses": [
+                "JavaScript Design Patterns",
+                "Intro to AJAX",
+                "Object Oriented JavaScript",
+                "Website Optimization",
+                "JavaScript Testing",
+                "HTML5 Canvas",
                 "Intro to HTML/CSS",
-                "JavaScript Basics",
-                "Intro to Computer Science,"
+                " JavaScript Basics",
+                " Intro to Computer Science"
             ]
         }
     ]
@@ -66,16 +79,36 @@ var education = {
 var projects = {
     "projects": [
         {
-            "title": "Editing CSS Templates",
-            "images": ["images/edtech.jpg"],
-            "dates": "2012",
-            "description": "Created lots of HTML/CSS projects in my EDTECH 502 class."
+            "title": "Neighborhood Map",
+            "images": [""],
+            "dates": "June - July 2015",
+            "description": "<li>Ground-up production of a neighborhood map</li>" +
+                            "<li>Utilizes the Google Maps API as well as one additional API (Foursquare was my choice)</li>" + 
+                            "<li>Implements Knockout.js to take advantage of observables and the MVVM design pattern" + 
+                            "<li>Demonstrates use of responsive design and JavaScript/CSS libraries (jQuery/Bootstrap)</li>"
         },
         {
-            "title": "Intro to HTML/CSS",
-            "images": ["images/udacityp1.jpg"],
-            "dates": "2014",
-            "description": "Project 1 for Udacity nano degree."
+            "title": "Frogger Clone",
+            "images": [""],
+            "dates": "December 2014",
+            "description": '<li>Uses object oriented concepts to re-create the classic video game”Frogger”</li>' +
+                            '<li>Created objects and then instantiated objects adding various methods</li>' +
+                            '<li>Game engine and sprites were provided</li>'
+        },
+        {
+            "title": "Website Optimization",
+            "images": [""],
+            "dates": "February 2015",
+            "description": '<li>Eliminates render and parser blocking scripts to optimize site for mobile devices</li>' +
+                            '<li>Edited code to eliminate redundant iterations </li>' +
+                            '<li>Utilized css translate to get more power from the GPU in order to reach a speed of 60 fps</li>'
+        },
+        {
+            "title": "Feedreader Testing",
+            "images": [""],
+            "dates": "July 2015",
+            "description": '<li>Wrote tests to assure proper functionality of an existing application </li>' +
+                            '<li>Created testing suites using the Jasmine testing framework</li>'
         }
     ]
 }
@@ -85,24 +118,49 @@ var bio = {
     "role": "Business Teacher",
     "welcomemessage": "Greetings! Checkout my working resume.",
     "contacts": {
-        "email": "email@gmail.com",
-        "mobile": "5551212",
+        "email": "nathan.bateman.jr@gmail.com",
+        "mobile": "(913) 738-4246",
         "github": "Nathan-Bateman",
         "skype": "nbateman1",
-        "location": "Bangkok, Thailand"
+        "location": "Kansas City, MO"
     },
     "picture": "images/nathan.jpg",
     "skills": [
-        " Instructional Design",
-        " Curriculum Design",
-        " Technology Integration",
+        " HTML/CSS/JavaScript",
+        " JQuery/Knockout/Bootstrap",
+        " Ajax/Responsive Design",
         " Adobe Creative Cloud",
-        " HTML/CSS"
+        " Website Optimization"
     ]
 }
+education.display = function(){
+    for(school in education.schools){
+      
+        $("#education").append(HTMLschoolStart);
+        var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[school].name);
+        $(".education-entry:first").append(formattedSchoolName);
 
+        var formattedSchoolDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
+        $(".education-entry:first").append(formattedSchoolDates);
+
+        if( 'major' in education.schools[school]){
+        var formattedSchoolDegree = HTMLschoolDegree.replace("%data%",education.schools[school].major);
+        $(".education-entry:first").append(formattedSchoolDegree);
+        }
+
+        if( 'courses' in education.schools[school]){
+        var formattedCourses = HTMLcourses.replace("%data%",education.schools[school].courses);
+        $(".education-entry:first").append(formattedCourses);
+        }
+
+        if('city' in education.schools[school]){
+            var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[school].city);
+            $(".education-entry:first").append(formattedSchoolLocation);
+        }
+    }
+}
+education.display();
 projects.display = function(){
-//function displayProjects(){
     for (project in projects.projects){
         $("#projects").append(HTMLprojectStart);
         var formattedprojecttitle = HTMLprojectTitle.replace("%data%",projects.projects[project].title);
@@ -115,15 +173,32 @@ projects.display = function(){
             for (image in projects.projects[project].images){
                 var formattedprojectimage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
                 $(".project-entry:last").append(formattedprojectimage);
-
             }
-        }
-
-       
+        }  
     }
 };
-//displayProjects();
-function displayHeader(){
+projects.display();
+bio.display = function(){
+for (contact in bio.contacts) {
+
+if (contact === 'email') {
+    var formattedContact =  HTMLemail.replace('%data%',bio.contacts[contact]);
+   $("#header").append(formattedContact);
+
+} else if (contact === 'mobile') {
+    var formattedContact =  HTMLmobile.replace('%data%',bio.contacts[contact]);
+   $("#header").append(formattedContact);
+
+} else if (contact === 'github') {
+    var formattedContact =  HTMLgithub.replace('%data%',bio.contacts[contact]);
+   $("#header").append(formattedContact);
+
+} else if (contact === 'location') {
+    var formattedContact =  HTMLlocation.replace('%data%',bio.contacts[contact]);
+   $("#header").append(formattedContact);
+}
+}
+
 if (bio.skills.length > 0){
 	$("#header").append(HTMLskillsStart);
 	var formattedskills = HTMLskills.replace("%data%",bio.skills[0]);
@@ -138,9 +213,10 @@ if (bio.skills.length > 0){
 	$("#skills").append(formattedskills);
 	formattedskills = HTMLskills.replace("%data%",bio.skills[5]);
 }
+
 };
-displayHeader();
-function displayWork(){
+bio.display();
+work.display = function(){
 for (job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 		var formattedemployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
@@ -156,8 +232,7 @@ for (job in work.jobs) {
 
 	}
 };
-displayWork();
-
+work.display();
 //click counter is here 
 $(document).click(function(loc) {
   var x = loc.pageX;
@@ -180,3 +255,10 @@ function inName() {
     return finalName;
 
 };
+$("#mapDiv").append(googleMap);
+
+
+
+
+
+

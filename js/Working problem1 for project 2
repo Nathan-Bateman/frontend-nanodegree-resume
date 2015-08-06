@@ -1,0 +1,282 @@
+
+//--------------Modified on 11/27/2014---FINAL SOLUTION FOR PROJECT2, PROBLEM1---------------------
+//function that compares x and y if they are both numbers
+function comparenumbers(x, y) {
+    if (x < y){
+        return "<";
+    }
+    else if (x > y){
+        return ">";
+    }
+    else {
+      return "=";  
+    }
+}
+//deletes a word in the default error message array
+function deleteword(x){error.splice(error.indexOf(x),1);
+}
+//deletes then replaces a word in the default error message array
+function deletereplace(x,y){error.splice(error.indexOf(x),1,y);
+}
+function getRelationship(x, y){
+    //default error message array
+   error = ['Can\'t', 'compare', 'relationships', 'because', 'x', 'and', 'y', 'is', 'are', 'not', 'a', 'numbers'];
+   /*testing for all cases of x and y, each error statement is unique and
+   replaces the 'is' or 'are', as well as the x or y value or both*/
+    if (isNaN(x) && y === undefined){
+        deleteword('is');
+        deletereplace('x',x);
+        deletereplace('y','undefined');
+        deleteword('a');
+        var  newerror = error.join();
+        newerror = newerror.replace(/,/g," ");
+        //this technique copied directly from: http://www.tek-tips.com/viewthread.cfm?qid=1134940
+        newerror = newerror.replace("  "," ");
+        return newerror;
+    }
+    else if (!isNaN(x) && y === undefined){
+        deleteword('are');
+        deleteword('and');
+        deletereplace('numbers','number');
+        deletereplace('y','undefined');
+        deleteword('x');
+        var  newerror2 = error.join();
+        newerror2 = newerror2.replace(/,/g," ");
+        //this technique copied directly from: http://www.tek-tips.com/viewthread.cfm?qid=1134940
+        newerror2 = newerror2.replace("  "," ");
+        return newerror2;
+    }
+    else if (isNaN(x) && isNaN(y)){
+        deleteword('is');
+        deletereplace('x',x);
+        deletereplace('y',y);
+        deleteword('a');
+         var  newerror3 = error.join();
+        newerror3 = newerror3.replace(/,/g," ");
+        newerror3 = newerror3.replace("  "," ");
+        //this technique copied directly from: http://www.tek-tips.com/viewthread.cfm?qid=1134940
+        return newerror3;
+    }
+    else if (!isNaN(x) && isNaN(y)){
+        deleteword('are');
+        deleteword('and');
+        deletereplace('numbers','number');
+        deletereplace('y',y);
+        deleteword('x');
+        var  newerror4 = error.join();
+        newerror4 = newerror4.replace(/,/g," ");
+        //this technique copied directly from: http://www.tek-tips.com/viewthread.cfm?qid=1134940
+        newerror4 = newerror4.replace("  "," ");
+        return newerror4;
+    }
+    else if (isNaN(x) && !isNaN(y)){
+        deleteword('are');
+        deleteword('and');
+        deletereplace('numbers','number');
+        deleteword('y');
+        deletereplace('x',x);
+        var  newerror5 = error.join();
+        newerror5 = newerror5.replace(/,/g," ");
+        //this technique copied directly from: http://www.tek-tips.com/viewthread.cfm?qid=1134940
+        newerror5 = newerror5.replace("  "," ");
+        return newerror5;
+    }
+    else {
+      return comparenumbers(x, y); 
+    }
+}
+
+// Try logging these functions to test your code!
+console.log(getRelationship(1,4));
+console.log(getRelationship(1,1));
+console.log(getRelationship("that",2));
+console.log(getRelationship("this"," something else"));
+console.log(getRelationship(3));
+console.log(getRelationship("hi"));
+console.log(getRelationship(NaN));
+console.log(getRelationship(NaN, undefined));
+
+------------------------------Final Solution for Project 2, Problem 2----------------------------------
+var moonWalkers = [
+  "Neil Armstrong",
+  "Buzz Aldrin",
+  "Pete Conrad",
+  "Alan Bean",
+  "Alan Shepard",
+  "Edgar Mitchell",
+  "David Scott",
+  "James Irwin",
+  "John Young",
+  "Charles Duke",
+  "Eugene Cernan",
+  "Harrison Schmitt"
+];
+function alphabetizer(names) {
+    var empty = [];
+ //empty array to append each edited item from the for loop   
+    for (i=0;i<names.length;i++){
+        var split = names[i].split(" ");
+//this creates a new variable and then splits the given "i" where there is a space into another array
+        var rev =split.reverse();
+//this switches the names to make the last name first        
+        if (rev.length === 3){
+           var rev1 = rev[0] + ", " + rev[2] + " " + rev[1];
+            empty.push(rev1);
+        }else {
+             var rev2 = rev[0] +", " + rev[1]; 
+             empty.push(rev2);
+            }
+        }
+//the if statement tests to see if there is a middle name and then
+//if so it concatenates the 1-3 items in the string, if not just the 1-2 items,
+//then it pushes them to the "empty" array
+ return empty.sort();
+//the empty array is sorted into alphabetical order by last name and returned
+}
+
+// Try logging your results to test your code!
+console.log(alphabetizer(moonWalkers));
+
+---------------------------------------------Final Solution Project 2, Problem 3--------------------------------------------
+
+function ruleList(results) {
+    var wang = [];
+// created an empy array to push the strings into
+    for(var i in results.formattedResults.ruleResults){
+       wang.push(results.formattedResults.ruleResults[i].localizedRuleName);    }
+//this for loop combs through the rule results' object keys within the formattedResults object
+//it then accesses the localizedRuleName key value and pushes it into the "wang" array
+    return wang;
+//upon completion the function returns the populated "wang" array
+}
+
+function sumArray(bytes) {
+    var y=0;
+    for (var i in bytes){
+       y += bytes[i]; 
+    }
+    return y;
+}
+//The above function is to take the numerical values (not strings) in an array and add them together
+function totalBytes(results) {
+  var empty = [];
+// created an empy array to push the numbers of bytes into
+    for (var i in results.pageStats){
+//this loops through each key in the "pagestats" key of the psinsights object
+//the key value of pageStats is itself an object with other keys, thus the need to comb through them
+        if (typeof(results.pageStats[i])==="string"){
+//this line tests the value of each pageStat key to see if it is a string, because all bytes in this 
+//object are formatted as strings
+            var x = parseInt(results.pageStats[i]);
+            empty.push(x);
+//Finally, the variable x is locally created to make the strings found into numbers and then push them
+//into the empty array
+        }
+    }
+    return sumArray(empty);
+}
+//the return calls the sumArray function and passes in the "empty" array as its parameter
+
+psinsights = {
+ "kind": "pagespeedonline#result",
+ "id": "/speed/pagespeed",
+ "responseCode": 200,
+ "title": "PageSpeed Home",
+ "score": 90,
+ "pageStats": {
+  "numberResources": 22,
+  "numberHosts": 7,
+  "totalRequestBytes": "2761",
+  "numberStaticResources": 16,
+  "htmlResponseBytes": "91981",
+  "cssResponseBytes": "37728",
+  "imageResponseBytes": "13909",
+  "javascriptResponseBytes": "247214",
+  "otherResponseBytes": "8804",
+  "numberJsResources": 6,
+  "numberCssResources": 2
+ },
+ "formattedResults": {
+  "locale": "en_US",
+  "ruleResults": {
+    "AvoidBadRequests": {
+      "localizedRuleName": "Avoid bad requests",
+      "ruleImpact": 0.0
+    },
+    "MinifyJavaScript": {
+      "localizedRuleName": "Minify JavaScript",
+      "ruleImpact": 0.1417,
+      "urlBlocks": [
+      {
+        "header": {
+       "format": "Minifying the following JavaScript resources could reduce their size by $1 ($2% reduction).",
+       "args": [
+        {
+         "type": "BYTES",
+         "value": "1.3KiB"
+        },
+        {
+         "type": "INT_LITERAL",
+         "value": "0"
+        }
+       ]
+        },
+        "urls": [
+        {
+          "result": {
+         "format": "Minifying $1 could save $2 ($3% reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "value": "http://code.google.com/js/codesite_tail.pack.04102009.js"
+          },
+          {
+           "type": "BYTES",
+           "value": "717B"
+          },
+          {
+           "type": "INT_LITERAL",
+           "value": "1"
+          }
+         ]
+        }
+       },
+       {
+        "result": {
+         "format": "Minifying $1 could save $2 ($3% reduction).",
+         "args": [
+          {
+           "type": "URL",
+           "value": "http://www.gmodules.com/ig/proxy?url\u003dhttp%3A%2F%2Fjqueryjs.googlecode.com%2Ffiles%2Fjquery-1.2.6.min.js"
+          },
+          {
+           "type": "BYTES",
+           "value": "258B"
+          },
+          {
+           "type": "INT_LITERAL",
+           "value": "0"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "SpriteImages": {
+    "localizedRuleName": "Combine images into CSS sprites",
+    "ruleImpact": 0.0
+   }
+  }
+ },
+ "version": {
+  "major": 1,
+  "minor": 11
+ }
+};
+
+
+// Try logging the outputs below to test your code!
+console.log(ruleList(psinsights));
+console.log(totalBytes(psinsights));

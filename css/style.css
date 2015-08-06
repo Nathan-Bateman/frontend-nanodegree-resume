@@ -56,6 +56,7 @@ h2, h3, h4, h5 {
   line-height: 16px;
   float: left;
   clear: left;
+  padding-bottom: 2px;
 }
 
 .location-text {
@@ -117,12 +118,20 @@ a {
 .dark-gray {
   background-color: #4A4A4A;
 }
-
+.bullet {
+  margin-left: 1.5em;
+  list-style-image: initial;
+  font-style: italic;
+}
 /* TODO: Replace with image later */
 #header {
   background-color: #484848;
 }
-
+.inline {
+  display: inline;
+list-style-type: none;
+padding-right: 20px;
+}
 .flex-box {
   display: -webkit-flex;
   display: flex;
@@ -136,7 +145,7 @@ a {
   padding: 5%;
 }
 
-ul {
+.ulgeneral {
   list-style-type: none;
 }
 
