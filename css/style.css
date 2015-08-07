@@ -140,7 +140,10 @@ padding-right: 20px;
   justify-content: space-around;
   padding: 10px;
 }
-
+.image-circle: {
+  min-width: 84px;
+  max-height: 116px;
+}
 .center-content {
   padding: 5%;
 }

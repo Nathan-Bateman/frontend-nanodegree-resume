@@ -13,6 +13,7 @@ var formattedPic = HTMLbioPic.replace("%data%",pic);
 $("#header").prepend(formattedrole);
 $("#header").prepend(formattedname);
 $("#header").append(formattedPic);
+$("#footerContacts").append(HTMLfooterContact);
 var work = {
     "jobs": [
         {
