@@ -92,7 +92,7 @@ var projects = {
             "title": "Frogger Clone",
             "images": [""],
             "dates": "December 2014",
-            "description": '<li>Uses object oriented concepts to re-create the classic video game”Frogger”</li>' +
+            "description": '<li>Uses object oriented concepts to re-create the classic video game <i>Frogger</i></li>' +
                             '<li>Created objects and then instantiated objects adding various methods</li>' +
                             '<li>Game engine and sprites were provided</li>'
         },
