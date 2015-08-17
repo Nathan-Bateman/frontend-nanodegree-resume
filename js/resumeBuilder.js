@@ -81,7 +81,6 @@ var projects = {
     "projects": [
         {
             "title": "Neighborhood Map",
-            "images": [""],
             "dates": "June - July 2015",
             "description": "<li>Ground-up production of a neighborhood map</li>" +
                             "<li>Utilizes the Google Maps API as well as one additional API (Foursquare was my choice)</li>" + 
@@ -90,7 +89,6 @@ var projects = {
         },
         {
             "title": "Frogger Clone",
-            "images": [""],
             "dates": "December 2014",
             "description": '<li>Uses object oriented concepts to re-create the classic video game <i>Frogger</i></li>' +
                             '<li>Created objects and then instantiated objects adding various methods</li>' +
@@ -98,7 +96,6 @@ var projects = {
         },
         {
             "title": "Website Optimization",
-            "images": [""],
             "dates": "February 2015",
             "description": '<li>Eliminates render and parser blocking scripts to optimize site for mobile devices</li>' +
                             '<li>Edited code to eliminate redundant iterations </li>' +
@@ -106,7 +103,6 @@ var projects = {
         },
         {
             "title": "Feedreader Testing",
-            "images": [""],
             "dates": "July 2015",
             "description": '<li>Wrote tests to assure proper functionality of an existing application </li>' +
                             '<li>Created testing suites using the Jasmine testing framework</li>'
@@ -170,14 +166,9 @@ projects.display = function(){
         $(".project-entry:last").append(formattedprojectdates);
         var formattedprojectdescription = HTMLprojectDescription.replace("%data%",projects.projects[project].description);
         $(".project-entry:last").append(formattedprojectdescription);
-        if (projects.projects[project].images.length > 0){
-            for (image in projects.projects[project].images){
-                var formattedprojectimage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
-                $(".project-entry:last").append(formattedprojectimage);
-            }
+        
         }  
-    }
-};
+    };
 projects.display();
 bio.display = function(){
 for (contact in bio.contacts) {
